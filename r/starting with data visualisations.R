@@ -65,8 +65,9 @@ ggplot(mtcars, aes(x = wt, y = mpg,  size = disp)) +
 ggplot(mtcars, aes(x = wt, y = mpg, shape = disp)) +
     geom_point()
 
-#Another argument of aes() is the shape of the points. There is a finite amount of shapes which ggplot() can automatically assign to the points. 
-#shape only makes sense with categorical data, and disp is continuous.
+# Another argument of aes() is the shape of the points.
+# There is a finite amount of shapes which ggplot() can automatically assign to the points. 
+# shape only makes sense with categorical data, and disp is continuous.
 
 #ggplot layers
 
@@ -74,15 +75,17 @@ ggplot(mtcars, aes(x = wt, y = mpg, shape = disp)) +
 #next layer is aesthetics
 #third layer is geometry
 
-
 # Explore the diamonds data frame with str()
+
 str(diamonds)
 
 # Add geom_point() with +
-#Use the + operator to add geom_point() to the first ggplot() command. This will tell ggplot2 to draw points on the plot.
+# Use the + operator to add geom_point() to the first ggplot() command. This will tell ggplot2 to draw points on the plot.
+
 ggplot(diamonds, aes(x = carat, y = price)) + geom_point() 
 
 # Add geom_point() and geom_smooth() with +
-#Use the + operator to add geom_point() and geom_smooth(). These just stack on each other! geom_smooth() will draw a smoothed line over the points.
+# Use the + operator to add geom_point() and geom_smooth(). 
+# These just stack on each other! geom_smooth() will draw a smoothed line over the points.
 ggplot(diamonds, aes(x = carat, y = price)) + geom_point() + geom_smooth()
 
