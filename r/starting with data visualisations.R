@@ -1,8 +1,8 @@
 library(MASS)
+library(ggplot2)
 mammals
 summary(mammals)
 str(mammals)
-library(ggplot2)
 
 #obvious first step is to make a scatter plot
 
@@ -14,7 +14,6 @@ ggplot(mammals,aes(x= body, y = brain)) + geom_point() + stat_smooth(method = "l
 
 # this is a pretty poor model as because of few extreme values have large influence
 # applying log transformation on both variables
-
 #EXPLORING AND FINE TUNING 
 
 ggplot(mammals, aes(x= body, y = brain))+ geom_point() +
@@ -24,8 +23,8 @@ ggplot(mammals, aes(x= body, y = brain))+ geom_point() +
     stat_smooth(method = "lm", col = "#C42126" , se =F, size = 1)
 
 # ------------MTCARS
-
 # Explore the mtcars data frame with str()
+
 str(mtcars)
 
 # Execute the following command
@@ -48,28 +47,24 @@ ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
 #   - Coordinates   | the space on which the data will be plotted
 #   - Themes        | all non data ink
  
-# ggplot2 has already been loaded for you. Take a look at the first command. It plots the mpg (miles per galon) against the weight (in 1,000 pounds). You don't have to change anything about this command.
+# first command below, It plots the mpg (miles per galon) against the weight (in 1,000 pounds).
+# In the second call of ggplot()The color is dependent on the displacement of the car engine, found in disp.
+# In the third call of ggplot() The size is dependent on the displacement of the car engine, found in disp.
 
-# In the second call of ggplot() change the col argument in aes() (which stands for aesthetics). The color should be dependent on the displacement of the car engine, found in disp.
-
-# In the third call of ggplot() change the size argument in aes() (which stands for aesthetics). The size should be dependent on the displacement of the car engine, found in disp.
-
-# A scatter plot has been made for you
 ggplot(mtcars, aes(x = wt, y = mpg)) +
     geom_point()
 
-# Replace ___ with the correct vector
 ggplot(mtcars, aes(x = wt, y = mpg, col = disp)) +
     geom_point()
 
-# Replace ___ with the correct vector
 ggplot(mtcars, aes(x = wt, y = mpg,  size = disp)) +
     geom_point()
 
-#below gives an error
-#Error: A continuous variable can not be mapped to shape
+# below gives an error
+# Error: A continuous variable can not be mapped to shape
 ggplot(mtcars, aes(x = wt, y = mpg, shape = disp)) +
     geom_point()
+
 #Another argument of aes() is the shape of the points. There is a finite amount of shapes which ggplot() can automatically assign to the points. 
 #shape only makes sense with categorical data, and disp is continuous.
 
